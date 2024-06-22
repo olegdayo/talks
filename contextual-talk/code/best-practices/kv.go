@@ -8,10 +8,12 @@ import (
 // Wrong.
 func fWrongKey(ctx context.Context) {
 	metadata := ctx.Value("x-header")
+
 	slog.DebugContext(
 		ctx, "got metadata",
 		"metadata", metadata,
 	)
+	// ...
 }
 
 // Correct.
@@ -29,6 +31,7 @@ func fCorrectKey(ctx context.Context) {
 		"first value", firstValue,
 		"second value", secondValue,
 	)
+	// ...
 }
 
 // Collision.
@@ -38,13 +41,14 @@ type (
 )
 
 func fCollisionnKey(ctx context.Context) {
+	// Collision: firstValue == second value!
 	firstValue := ctx.Value(firstKeyCollision{})
 	secondValue := ctx.Value(secondKeyCollision{})
 
-	// Collision: firstValue == second value!
 	slog.DebugContext(
 		ctx, "got metadata",
 		"first value", firstValue,
 		"second value", secondValue,
 	)
+	// ...
 }
