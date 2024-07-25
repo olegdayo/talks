@@ -117,20 +117,6 @@ var cancelCtxKey int
 ```
 
 ```go
-func WithCancel(parent Context) (
-	ctx Context,
-	cancel CancelFunc,
-) {
-	c := &cancelCtx{}
-	c.propagateCancel(parent, c)
-
-	return c, func() {
-		c.cancel(true, Canceled, nil)
-	}
-}
-```
-
-```go
 func (c *cancelCtx) Done() <-chan struct{} {
 	d := c.done.Load()
 	if d == nil {
@@ -149,6 +135,20 @@ func (c *cancelCtx) Value(key any) any {
 		return c
 	}
 	return value(c.Context, key)
+}
+```
+
+```go
+func WithCancel(parent Context) (
+	ctx Context,
+	cancel CancelFunc,
+) {
+	c := &cancelCtx{}
+	c.propagateCancel(parent, c)
+
+	return c, func() {
+		c.cancel(true, Canceled, nil)
+	}
 }
 ```
 

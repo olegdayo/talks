@@ -1,5 +1,5 @@
 # Contextual Talk
 
-We will explore // TODO ...
+Context package's history, internals and best practices are covered
 
-YouTube: // TODO ...
+[![Contextual Talk](https://img.youtube.com/vi/heXa5PnY200/maxresdefault.jpg)](https://youtu.be/heXa5PnY200)
