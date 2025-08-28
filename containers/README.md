@@ -1,5 +1,11 @@
 # Container internals or how 4 syscalls changed the operations
 
+## Description
+
+Nowadays, containers are being taken for granted, as some "lightweight" virtual machines
+
+In this talk, we will explore, how to implement one with Go
+
 ## Plan
 
 - Introduction (2m)
