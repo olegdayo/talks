@@ -13,26 +13,12 @@ func changeDirectory(path string) error {
 		fmt.Println(err)
 	}
 
-	for _, sysDir := range []string{"/usr", "/lib", "/lib64"} {
-		cmd := exec.Command("cp", "-r", sysDir, path)
-		err = cmd.Run()
-		if err != nil {
-			return err
-		}
-	}
-
 	err = syscall.Chdir(path)
 	if err != nil {
 		return err
 	}
 
 	err = syscall.Chroot(path)
-	if err != nil {
-		return err
-	}
-
-	// TODO: relocate
-	err = os.Setenv("PATH", "/usr/bin")
 	if err != nil {
 		return err
 	}
