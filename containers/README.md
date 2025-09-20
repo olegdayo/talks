@@ -1,5 +1,7 @@
 # Container internals or how 4 syscalls changed the operations
 
+Presentation: https://docs.google.com/presentation/d/1f0TDzx-3mSe1kNnYMi8lezfpNnqrTE_HysMUIejFiI4/edit?usp=drivesdk
+
 ## Description
 
 Nowadays, containers are being taken for granted, as some "lightweight" virtual machines
