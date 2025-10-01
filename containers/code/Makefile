@@ -6,4 +6,5 @@ bin:
 .PHONY: clean
 clean:
 	rm -rf bin
+	sudo umount /tmp/container/proc || true
 	rm -rf /tmp/container
